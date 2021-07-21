@@ -8,6 +8,21 @@ export const ProfileContainer = styled.div`
   right: 0;
   top: 70px;
   box-shadow: 0px 2px 4px #00000050;
+
+  &.profile-container-enter {
+    opacity: 0;
+  }
+  &.profile-container-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  &.profile-container-exit {
+    opacity: 1;
+  }
+  &.profile-container-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
 `;
 
 export const UserInformation = styled.div`

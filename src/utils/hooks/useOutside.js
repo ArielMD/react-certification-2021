@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const useOutside = (searchRef, showRef, callback) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (window.innerHeight > 992) return;
+      if (window.innerWidth > 992) return;
 
       const eventsearch = searchRef.current && !searchRef.current.contains(event.target);
       const eventShow = showRef.current && !showRef.current.contains(event.target);
@@ -20,7 +20,7 @@ const useOutside = (searchRef, showRef, callback) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [searchRef, showRef, callback]);
+  });
 };
 
 export default useOutside;
