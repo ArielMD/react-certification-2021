@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import useOutside from '../../utils/hooks/useOutside';
+import UserProfile from '../UserProfile/UserProfile.component';
 import {
   Navbar,
   Icon,
@@ -18,6 +19,7 @@ import {
 
 const Navigation = () => {
   const [showSearch, setShowSearch] = useState(true);
+  const [showProfile, setShowProfile] = useState(false);
 
   const searchRef = useRef(null);
   const showSearchRed = useRef(null);
@@ -25,6 +27,10 @@ const Navigation = () => {
 
   const toggleShowSearch = () => {
     setShowSearch(!showSearch);
+  };
+
+  const toggleSHowProfileUser = () => {
+    setShowProfile(!showProfile);
   };
 
   return (
@@ -47,10 +53,11 @@ const Navigation = () => {
           <Icon className="fas fa-search" size="25" />
         </ShowSearchButton>
         <LoginButton>Log in</LoginButton>
-        <UserPicture>
+        <UserPicture onClick={() => toggleSHowProfileUser()}>
           <UserIcon className="fas fa-user" size="40" />
         </UserPicture>
       </Content>
+      {showProfile && <UserProfile />}
     </Navbar>
   );
 };
