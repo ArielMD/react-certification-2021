@@ -1,5 +1,5 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-
 import VideoCard from './VideoCard.component';
 
 const mock = {
@@ -36,10 +36,5 @@ describe('Video Card component', () => {
     const channelElement = screen.queryByText(/channel/i);
 
     expect(channelElement).toBeInTheDocument();
-  });
-
-  it('should contains a image', () => {
-    const imageElement = screen.queryByAltText(/title/i);
-    expect(imageElement).toBeInTheDocument();
   });
 });

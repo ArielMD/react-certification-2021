@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-
 import ChannelCard from './ChannelCard.component';
 
 const mock = {
@@ -30,10 +29,5 @@ describe('Channel card component', () => {
     const descriptionElement = screen.queryByText(/description/i);
 
     expect(descriptionElement).toBeInTheDocument();
-  });
-
-  it('should contains a image', () => {
-    const imageElement = screen.queryByAltText(/channel/i);
-    expect(imageElement).toBeInTheDocument();
   });
 });

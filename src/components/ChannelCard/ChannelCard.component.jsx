@@ -13,7 +13,7 @@ const ChannelCard = ({ video }) => {
   } = video;
   return (
     <ChannelWrapper>
-      <Image thumbnails={thumbnails} alt={channelTitle} />
+      <Image thumbnails={thumbnails} />
       <InfoContainer>
         <ChannelTitle>{channelTitle}</ChannelTitle>
         <Description>{description}</Description>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const MainSection = styled.section`
   background-color: #f7f7f8;
   width: 100%;
+  margin-top: 70px;
   @media (min-width: 992px) {
     padding-left: 4rem;
   }

@@ -33,5 +33,7 @@ describe('Navigation component', () => {
 
   it('should contains a login button', () => {
     const loginElement = screen.queryByText(/Log in/i);
+
+    expect(loginElement).toBeInTheDocument();
   });
 });
