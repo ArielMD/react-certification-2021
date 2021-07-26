@@ -39,23 +39,16 @@ const Navigation = () => {
     setShowProfile(!showProfile);
   };
 
+  const toggleHiddeSidebar = () => {
+    setHiddeSidebar(!hiddeSidebar);
+  };
+
   return (
     <>
       <Navbar>
         <Content>
-          {hiddeSidebar ? (
-            <MenuIcon
-              className="fas fa-bars"
-              size="43"
-              onClick={() => setHiddeSidebar(false)}
-            />
-          ) : (
-            <MenuIcon
-              className="fas fa-bars"
-              size="43"
-              onClick={() => setHiddeSidebar(true)}
-            />
-          )}
+          <MenuIcon className="fas fa-bars" size="43" onClick={toggleHiddeSidebar} />
+
           <Image src="logo.svg" alt="" size="50" />
           <Name>Wizeline Videos </Name>
         </Content>
@@ -68,12 +61,12 @@ const Navigation = () => {
         </SearchForm>
 
         <Content>
-          <ShowSearchButton onClick={() => toggleShowSearch()} ref={showSearchRed}>
+          <ShowSearchButton onClick={toggleShowSearch} ref={showSearchRed}>
             <Icon className="fas fa-search" size="25" />
           </ShowSearchButton>
           <LoginButton>Log in</LoginButton>
-          <UserPicture onClick={() => toggleSHowProfileUser()} ref={profileRef}>
-            <UserIcon className="fas fa-user" size="40" />
+          <UserPicture ref={profileRef}>
+            <UserIcon onClick={toggleSHowProfileUser} className="fas fa-user" size="40" />
             <UserProfile showProfile={showProfile} />
           </UserPicture>
         </Content>

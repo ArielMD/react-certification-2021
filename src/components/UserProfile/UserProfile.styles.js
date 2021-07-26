@@ -8,6 +8,7 @@ export const ProfileContainer = styled.div`
   right: 0;
   top: 70px;
   box-shadow: 0px 2px 4px #00000050;
+  z-index: 10;
 
   &.profile-container-enter {
     opacity: 0;

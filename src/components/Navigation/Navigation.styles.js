@@ -7,6 +7,8 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 2px 4px #00000050;
+  position: fixed;
+  z-index: 10;
 `;
 
 export const Icon = styled.i`

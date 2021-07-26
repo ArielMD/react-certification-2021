@@ -7,7 +7,7 @@ function Layout({ children }) {
   return (
     <Container>
       <Navigation />
-      {children}
+      <div id="main-container">{children}</div>
     </Container>
   );
 }

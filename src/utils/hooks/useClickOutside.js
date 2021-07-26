@@ -8,10 +8,14 @@ const useClickOutside = (ref, callback) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document
+      .getElementById('main-container')
+      .addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document
+        .getElementById('main-container')
+        .removeEventListener('mousedown', handleClickOutside);
     };
   });
 };
