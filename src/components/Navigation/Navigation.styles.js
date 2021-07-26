@@ -11,15 +11,21 @@ export const Navbar = styled.nav`
   z-index: 10;
 `;
 
+export const Button = styled.button`
+  border: none;
+  cursor: pointer;
+`;
 export const Icon = styled.i`
   font-size: ${(props) => (props.size ? `${props.size}px` : '4rem')};
   color: #4dc6ff;
 `;
 
-export const MenuIcon = styled(Icon)`
+export const MenuButton = styled(Button)`
+  width: 50px;
   margin-right: 1.3rem;
-  cursor: pointer;
 `;
+
+export const MenuIcon = styled(Icon)``;
 
 export const UserIcon = styled(Icon)`
   color: #fff;
@@ -46,15 +52,12 @@ export const Content = styled.div`
   margin: 0 2rem;
 `;
 
-export const LoginButton = styled.button`
+export const LoginButton = styled(Button)`
   width: 6.5rem;
   height: 2.2rem;
   color: #4a4a4a;
   background-color: #e5e5e5;
   border-radius: 0.5rem;
-  outline: none;
-  border: none;
-  cursor: pointer;
   font-size: 1rem;
 
   &:hover {
@@ -64,6 +67,10 @@ export const LoginButton = styled.button`
 `;
 
 export const UserPicture = styled.div`
+  margin-left: 1.3rem;
+`;
+
+export const UserButton = styled(Button)`
   background-color: #4dc6ff;
   width: 50px;
   height: 50px;
@@ -71,8 +78,6 @@ export const UserPicture = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 1.3rem;
-  cursor: pointer;
 `;
 
 export const SearchForm = styled.div`

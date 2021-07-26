@@ -5,6 +5,8 @@ import UserProfile from '../UserProfile';
 import Sidebar from '../Sidebar';
 import {
   Navbar,
+  MenuButton,
+  UserButton,
   Icon,
   MenuIcon,
   Image,
@@ -47,7 +49,9 @@ const Navigation = () => {
     <>
       <Navbar>
         <Content>
-          <MenuIcon className="fas fa-bars" size="43" onClick={toggleHiddeSidebar} />
+          <MenuButton onClick={toggleHiddeSidebar}>
+            <MenuIcon className="fas fa-bars" size="43" />
+          </MenuButton>
 
           <Image src="logo.svg" alt="" size="50" />
           <Name>Wizeline Videos </Name>
@@ -66,7 +70,9 @@ const Navigation = () => {
           </ShowSearchButton>
           <LoginButton>Log in</LoginButton>
           <UserPicture ref={profileRef}>
-            <UserIcon onClick={toggleSHowProfileUser} className="fas fa-user" size="40" />
+            <UserButton onClick={toggleSHowProfileUser}>
+              <UserIcon className="fas fa-user" size="40" />
+            </UserButton>
             <UserProfile showProfile={showProfile} />
           </UserPicture>
         </Content>

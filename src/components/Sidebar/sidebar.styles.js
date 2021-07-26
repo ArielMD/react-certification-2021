@@ -20,7 +20,7 @@ export const SidebarWrapper = styled.aside`
     transition: width 0.4s ease-in-out;
     &.hidden {
       transform: translateX(0);
-      width: 4rem;
+      width: 3.8rem;
       overflow: hidden;
     }
   }
