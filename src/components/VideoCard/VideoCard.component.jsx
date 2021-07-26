@@ -14,7 +14,7 @@ const VideoCard = ({ video }) => {
   } = video;
   return (
     <VideoWrapper>
-      <Image thumbnails={thumbnails} />
+      <Image thumbnails={thumbnails} alt={title} />
       <InfoContainer>
         <Title>{title}</Title>
         <ChannelTitle>{channelTitle}</ChannelTitle>
