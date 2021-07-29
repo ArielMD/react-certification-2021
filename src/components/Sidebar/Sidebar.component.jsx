@@ -3,12 +3,12 @@ import useClickOutside from '../../utils/hooks/useClickOutside';
 
 import { SidebarWrapper, ItemContainer, ItemIcon, ItemName } from './sidebar.styles';
 
-const Sidebar = ({ hiddeSidebar, setHiddeSidebar }) => {
+const Sidebar = ({ isSidebarVisible, setIsSidebarVisible }) => {
   const sidebarRef = useRef(null);
 
-  useClickOutside(sidebarRef, () => setHiddeSidebar(true));
+  useClickOutside(sidebarRef, () => setIsSidebarVisible(false));
   return (
-    <SidebarWrapper ref={sidebarRef} className={hiddeSidebar ? 'hidden' : null}>
+    <SidebarWrapper ref={sidebarRef} className={isSidebarVisible ? '' : 'hidden'}>
       <ItemContainer to="/">
         <ItemIcon className="fas fa-home" />
         <ItemName>Home</ItemName>

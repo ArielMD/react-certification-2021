@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import UserProfile from './UserProfile.component';
 
 beforeEach(() => {
-  render(<UserProfile showProfile />);
+  render(<UserProfile isProfileVisible />);
 });
 
 describe('UserProfile component', () => {
@@ -27,12 +27,12 @@ describe('UserProfile component', () => {
   });
 
   it('should render UserProdfile when showProfile prop is true', () => {
-    const { container } = render(<UserProfile showProfile />);
+    const { container } = render(<UserProfile isProfileVisible />);
     expect(container.firstChild).toBeInTheDocument();
   });
 
   it('should not render UserProdfile when showProfile prop is false', () => {
-    const { container } = render(<UserProfile showProfile={false} />);
+    const { container } = render(<UserProfile isProfileVisible={false} />);
     expect(container.firstChild).not.toBeInTheDocument();
   });
 });

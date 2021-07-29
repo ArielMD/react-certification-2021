@@ -72,10 +72,52 @@ export const OptionContainer = styled.div`
 export const OptionImage = styled.i`
   padding-right: 1rem;
   color: #0e0e01;
+  font-size: 1rem;
 `;
 
 export const OptionName = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
-export const ToggleButton = styled.div``;
+export const ToggleButton = styled.label`
+  position: relative;
+  width: 3rem;
+  height: 1.4rem;
+  margin-left: auto;
+
+  .checkbox:checked + .slider:before {
+    transform: translate(1.5rem);
+  }
+
+  .checkbox:checked + .slider {
+    background-color: #4dc6ff;
+  }
+`;
+
+export const Checkbox = styled.input`
+  width: 0;
+  height: 0;
+  opacity: 0;
+`;
+
+export const Slider = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  background-color: #e5e5e5;
+
+  ::before {
+    position: absolute;
+    content: '';
+    height: 1.2rem;
+    width: 1.2rem;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 1rem;
+  }
+`;

@@ -10,14 +10,16 @@ import {
   OptionImage,
   OptionName,
   ToggleButton,
+  Checkbox,
+  Slider,
 } from './UserProfile.styles';
 
-const UserProfile = ({ showProfile }) => {
+const UserProfile = ({ isProfileVisible }) => {
   const profileRef = useRef(null);
 
   return (
     <CSSTransition
-      in={showProfile}
+      in={isProfileVisible}
       timeout={200}
       classNames="profile-container"
       unmountOnExit
@@ -32,12 +34,18 @@ const UserProfile = ({ showProfile }) => {
         <OptionContainer>
           <OptionImage className="far fa-moon" />
           <OptionName>Dark Mode</OptionName>
-          <ToggleButton />
+          <ToggleButton htmlFor="dark">
+            <Checkbox type="checkbox" id="dark" className="checkbox" />
+            <Slider className="slider" />
+          </ToggleButton>
         </OptionContainer>
         <OptionContainer>
           <OptionImage className="fas fa-globe-americas" />
           <OptionName>Language</OptionName>
-          <ToggleButton />
+          <ToggleButton htmlFor="language">
+            <Checkbox type="checkbox" id="language" className="checkbox" />
+            <Slider className="slider" />
+          </ToggleButton>
         </OptionContainer>
         <LineDivider />
         <OptionContainer>

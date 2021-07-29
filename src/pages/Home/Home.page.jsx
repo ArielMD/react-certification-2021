@@ -16,7 +16,7 @@ function HomePage() {
           item.id.kind.match(/video/i) ? (
             <VideoCard key={item.id.videoId} video={item} />
           ) : (
-            <ChannelCard key={item.id.channelId} video={item} />
+            <ChannelCard key={item.id.channelId} channel={item} />
           )
         )}
       </VideosContainer>

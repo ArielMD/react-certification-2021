@@ -15,7 +15,7 @@ const mock = {
 };
 
 beforeEach(() => {
-  render(<ChannelCard video={mock} />);
+  render(<ChannelCard channel={mock} />);
 });
 
 describe('Channel card component', () => {

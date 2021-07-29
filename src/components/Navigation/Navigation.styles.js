@@ -81,7 +81,7 @@ export const UserButton = styled(Button)`
 `;
 
 export const SearchForm = styled.div`
-  display: ${(props) => (props.hidden ? 'none' : 'flex')};
+  display: ${(props) => (props.isVisible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   position: absolute;

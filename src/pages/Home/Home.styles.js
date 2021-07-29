@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MainSection = styled.section`
+export const MainSection = styled.main`
   background-color: #f7f7f8;
   width: 100%;
   margin-top: 70px;

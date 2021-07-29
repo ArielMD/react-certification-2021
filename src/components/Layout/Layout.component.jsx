@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from './Layout.styles';
+import { Container } from './Layout.styles';
 import Navigation from '../Navigation';
 
 function Layout({ children }) {

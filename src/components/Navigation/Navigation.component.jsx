@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import useClickOutside from '../../utils/hooks/useClickOutside';
 import useOutside from '../../utils/hooks/useOutside';
 import UserProfile from '../UserProfile';
@@ -22,34 +22,42 @@ import {
 } from './Navigation.styles';
 
 const Navigation = () => {
-  const [showSearch, setShowSearch] = useState(true);
-  const [showProfile, setShowProfile] = useState(false);
-  const [hiddeSidebar, setHiddeSidebar] = useState(true);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-  const searchRef = useRef(null);
-  const showSearchRed = useRef(null);
-  useOutside(searchRef, showSearchRed, () => setShowSearch(true));
+  const inputRef = useRef(null);
+  const searchFormRef = useRef(null);
+  const SearchButtonRef = useRef(null);
+  useOutside(searchFormRef, SearchButtonRef, () => setIsSearchVisible(false));
 
   const profileRef = useRef(null);
-  useClickOutside(profileRef, () => setShowProfile(false));
+  useClickOutside(profileRef, () => setIsProfileVisible(false));
 
-  const toggleShowSearch = () => {
-    setShowSearch(!showSearch);
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
   };
 
-  const toggleSHowProfileUser = () => {
-    setShowProfile(!showProfile);
+  const toggleProfileUser = () => {
+    setIsProfileVisible(!isProfileVisible);
   };
 
-  const toggleHiddeSidebar = () => {
-    setHiddeSidebar(!hiddeSidebar);
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
   };
+
+  useEffect(() => {
+    if (isSearchVisible) {
+      inputRef.current.focus();
+      console.log(inputRef.current);
+    }
+  }, [isSearchVisible]);
 
   return (
     <>
       <Navbar>
         <Content>
-          <MenuButton onClick={toggleHiddeSidebar}>
+          <MenuButton onClick={toggleSidebar}>
             <MenuIcon className="fas fa-bars" size="43" />
           </MenuButton>
 
@@ -57,27 +65,30 @@ const Navigation = () => {
           <Name>Wizeline Videos </Name>
         </Content>
 
-        <SearchForm hidden={showSearch} ref={searchRef}>
-          <SearchInput type="text" placeholder="Search" />
+        <SearchForm isVisible={isSearchVisible} ref={searchFormRef}>
+          <SearchInput type="text" placeholder="Search" ref={inputRef} />
           <SearchButton>
             <Icon className="fas fa-search" size="25" />
           </SearchButton>
         </SearchForm>
 
         <Content>
-          <ShowSearchButton onClick={toggleShowSearch} ref={showSearchRed}>
+          <ShowSearchButton onClick={toggleSearch} ref={SearchButtonRef}>
             <Icon className="fas fa-search" size="25" />
           </ShowSearchButton>
           <LoginButton>Log in</LoginButton>
           <UserPicture ref={profileRef}>
-            <UserButton onClick={toggleSHowProfileUser}>
+            <UserButton onClick={toggleProfileUser}>
               <UserIcon className="fas fa-user" size="40" />
             </UserButton>
-            <UserProfile showProfile={showProfile} />
+            <UserProfile isProfileVisible={isProfileVisible} />
           </UserPicture>
         </Content>
       </Navbar>
-      <Sidebar hiddeSidebar={hiddeSidebar} setHiddeSidebar={setHiddeSidebar} />
+      <Sidebar
+        isSidebarVisible={isSidebarVisible}
+        setIsSidebarVisible={setIsSidebarVisible}
+      />
     </>
   );
 };
