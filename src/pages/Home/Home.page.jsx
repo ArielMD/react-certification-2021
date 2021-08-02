@@ -1,38 +1,26 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import ChannelCard from '../../components/ChannelCard';
+import Explore from '../../components/Explore';
+import VideoCard from '../../components/VideoCard';
+import YTVideos from '../../Mocks/youtube-videos-mock.json';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import { Title, MainSection, VideosContainer } from './Home.styles';
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
-
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <MainSection>
+      <Title>Explore new videos</Title>
+      <Explore />
+      <VideosContainer>
+        {YTVideos.items.map((item) =>
+          item.id.kind.match(/video/i) ? (
+            <VideoCard key={item.id.videoId} video={item} />
+          ) : (
+            <ChannelCard key={item.id.channelId} channel={item} />
+          )
+        )}
+      </VideosContainer>
+    </MainSection>
   );
 }
 

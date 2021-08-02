@@ -1,9 +1,15 @@
 import React from 'react';
 
-import './Layout.styles.css';
+import { Container } from './Layout.styles';
+import Navigation from '../Navigation';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  return (
+    <Container>
+      <Navigation />
+      <div id="main-container">{children}</div>
+    </Container>
+  );
 }
 
 export default Layout;
