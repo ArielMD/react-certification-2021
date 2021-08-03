@@ -20,6 +20,7 @@ const Search = () => {
           item.id.kind.match(/video/i) ? (
             <VideoCard
               key={item.id.videoId}
+              id={item.id.videoId}
               title={item.snippet.title}
               description={item.snippet.description}
               thumbnails={item.snippet.thumbnails}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const VideoWrapper = styled.div`
   width: ${(props) => (props.related ? '12rem' : '25rem')};
@@ -44,7 +45,7 @@ export const ChannelTitle = styled.p`
 `;
 export const Title = styled.p`
   font-size: 18px;
-
+  color: black;
   @media (min-width: 992px) {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -61,4 +62,8 @@ export const Description = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 1; /* number of lines to show */
   -webkit-box-orient: vertical;
+`;
+
+export const LinkTo = styled(Link)`
+  text-decoration: none;
 `;

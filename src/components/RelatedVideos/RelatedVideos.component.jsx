@@ -15,6 +15,7 @@ const RelatedVideos = () => {
           item.snippet && (
             <VideoCard
               key={item.id.videoId}
+              id={item.id.videoId}
               title={item.snippet.title}
               description={item.snippet.description}
               thumbnails={item.snippet.thumbnails}

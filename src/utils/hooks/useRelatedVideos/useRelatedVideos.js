@@ -19,7 +19,7 @@ const useRelatedVideos = (id) => {
   useEffect(() => {
     id && findById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   return { videos, error };
 };

@@ -6,18 +6,21 @@ import {
   ChannelTitle,
   Title,
   Description,
+  LinkTo,
 } from './videoCard.styles';
 
-const VideoCard = ({ title, description, thumbnails, channelTitle, related }) => {
+const VideoCard = ({ id, title, description, thumbnails, channelTitle, related }) => {
   return (
-    <VideoWrapper related>
-      <Image thumbnails={thumbnails} related={related} />
-      <InfoContainer>
-        <Title>{title}</Title>
-        <ChannelTitle>{channelTitle}</ChannelTitle>
-        <Description>{description}</Description>
-      </InfoContainer>
-    </VideoWrapper>
+    <LinkTo to={`/video?id=${id}`}>
+      <VideoWrapper related>
+        <Image thumbnails={thumbnails} related={related} />
+        <InfoContainer>
+          <Title>{title}</Title>
+          <ChannelTitle>{channelTitle}</ChannelTitle>
+          <Description>{description}</Description>
+        </InfoContainer>
+      </VideoWrapper>
+    </LinkTo>
   );
 };
 

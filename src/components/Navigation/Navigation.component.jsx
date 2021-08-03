@@ -4,6 +4,7 @@ import useClickOutside from '../../utils/hooks/useClickOutside';
 import useOutside from '../../utils/hooks/useOutside';
 import UserProfile from '../UserProfile';
 import Sidebar from '../Sidebar';
+import { Link } from 'react-router-dom';
 import {
   Navbar,
   MenuButton,
@@ -67,8 +68,9 @@ const Navigation = () => {
           <MenuButton onClick={toggleSidebar}>
             <MenuIcon className="fas fa-bars" size="43" />
           </MenuButton>
-
-          <Image src="logo.svg" alt="" size="50" />
+          <Link to="/">
+            <Image src="logo.svg" alt="" size="50" />
+          </Link>
           <Name>Wizeline Videos </Name>
         </Content>
 
