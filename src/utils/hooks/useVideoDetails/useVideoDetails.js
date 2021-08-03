@@ -2,25 +2,25 @@
 import { useEffect, useState } from 'react';
 import videoService from '../../../services/videos.services';
 
-const useVideo = (query) => {
-  const [videos, setVideos] = useState(null);
+const useVideoDetails = (id) => {
+  const [video, setVideo] = useState(null);
   const [error, setError] = useState(null);
 
-  const search = async () => {
+  const findById = async () => {
     try {
-      const response = await videoService().search(query);
-      setVideos(response);
+      const response = await videoService().getById(id);
+      setVideo(response.items[0]);
     } catch (err) {
       setError(err);
     }
   };
 
   useEffect(() => {
-    query && search();
+    id && findById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { videos, error };
+  return { video, error };
 };
 
-export default useVideo;
+export default useVideoDetails;

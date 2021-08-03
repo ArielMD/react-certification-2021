@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-expressions */
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import videoService from '../../../services/videos.services';
 
-const useVideo = (query) => {
+const useRelatedVideos = (id) => {
   const [videos, setVideos] = useState(null);
   const [error, setError] = useState(null);
 
-  const search = async () => {
+  const findById = async () => {
     try {
-      const response = await videoService().search(query);
+      const response = await videoService().getRelatedVideosById(id);
+      console.log(response);
       setVideos(response);
     } catch (err) {
       setError(err);
@@ -16,11 +17,11 @@ const useVideo = (query) => {
   };
 
   useEffect(() => {
-    query && search();
+    id && findById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { videos, error };
 };
 
-export default useVideo;
+export default useRelatedVideos;
