@@ -2,13 +2,19 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   padding: 3rem 3rem 0 3rem;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
 `;
+
 export const VideoDetailsContainer = styled.div`
   width: 100%;
   height: auto;
   background-color: white;
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     width: 75%;
   }
 `;
@@ -73,4 +79,6 @@ export const Channel = styled.p`
   font-size: 1.4rem;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  font-size: 0.9rem;
+`;
