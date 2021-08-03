@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import useClickOutside from '../../utils/hooks/useClickOutside';
 import useOutside from '../../utils/hooks/useOutside';
 import UserProfile from '../UserProfile';
 import Sidebar from '../Sidebar';
-import { Link } from 'react-router-dom';
 import {
   Navbar,
   MenuButton,

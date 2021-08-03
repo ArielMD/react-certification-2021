@@ -1,19 +1,26 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import VideoCard from './VideoCard.component';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 beforeEach(() => {
   render(
-    <VideoCard
-      title="title test"
-      description="Description test"
-      thumbnails={{
-        high: {
-          url: 'url test',
-        },
-      }}
-      channelTitle="Channel test"
-    />
+    <BrowserRouter>
+      <Switch>
+        <Route>
+          <VideoCard
+            title="title test"
+            description="Description test"
+            thumbnails={{
+              high: {
+                url: 'url test',
+              },
+            }}
+            channelTitle="Channel test"
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 });
 
