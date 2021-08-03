@@ -2,21 +2,19 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import VideoCard from './VideoCard.component';
 
-const mock = {
-  snippet: {
-    title: 'title test',
-    description: 'Description test',
-    thumbnails: {
-      high: {
-        url: 'url test',
-      },
-    },
-    channelTitle: 'Channel test',
-  },
-};
-
 beforeEach(() => {
-  render(<VideoCard video={mock} />);
+  render(
+    <VideoCard
+      title="title test"
+      description="Description test"
+      thumbnails={{
+        high: {
+          url: 'url test',
+        },
+      }}
+      channelTitle="Channel test"
+    />
+  );
 });
 
 describe('Video Card component', () => {

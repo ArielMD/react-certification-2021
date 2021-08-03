@@ -8,13 +8,10 @@ import {
   Description,
 } from './videoCard.styles';
 
-const VideoCard = ({ video }) => {
-  const {
-    snippet: { title, description, thumbnails, channelTitle },
-  } = video;
+const VideoCard = ({ title, description, thumbnails, channelTitle, related }) => {
   return (
-    <VideoWrapper>
-      <Image thumbnails={thumbnails} />
+    <VideoWrapper related>
+      <Image thumbnails={thumbnails} related={related} />
       <InfoContainer>
         <Title>{title}</Title>
         <ChannelTitle>{channelTitle}</ChannelTitle>

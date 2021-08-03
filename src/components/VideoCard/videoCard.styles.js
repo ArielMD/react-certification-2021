@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const VideoWrapper = styled.div`
-  width: 25rem;
+  width: ${(props) => (props.related ? '12rem' : '25rem')};
   height: auto; //20rem
   padding-bottom: 1rem;
   margin: 1rem 1rem;
@@ -22,9 +22,9 @@ export const VideoWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  background-image: url(${(props) => props.thumbnails.high.url});
+  background-image: url(${(props) => props.thumbnails?.high.url});
   width: 100%;
-  height: 14.3rem;
+  height: ${(props) => (props.related ? '5rem' : '14.3rem')};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0rem;
