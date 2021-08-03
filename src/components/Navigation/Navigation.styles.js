@@ -80,7 +80,7 @@ export const UserButton = styled(Button)`
   align-items: center;
 `;
 
-export const SearchForm = styled.div`
+export const SearchForm = styled.form`
   display: ${(props) => (props.isVisible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;

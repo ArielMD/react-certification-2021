@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
+import SearchPage from '../../pages/Search';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 
@@ -14,6 +15,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route>
+              <SearchPage />
             </Route>
             <Route path="*">
               <NotFound />

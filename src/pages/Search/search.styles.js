@@ -1,19 +1,16 @@
 import styled from 'styled-components';
 
-export const MainSection = styled.main`
-  width: 100%;
-`;
-
-export const Title = styled.h1`
-  font-size: 36px;
-  text-align: center;
-  padding: 1rem 0;
-`;
+export const SearchContainer = styled.div``;
 
 export const VideosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+`;
+
+export const SearchResult = styled.p`
+  padding: 1rem 0;
+  text-align: center;
 `;
 
 export const Error = styled.div`

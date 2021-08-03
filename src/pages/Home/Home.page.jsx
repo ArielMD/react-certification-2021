@@ -2,17 +2,19 @@ import React from 'react';
 import ChannelCard from '../../components/ChannelCard';
 import Explore from '../../components/Explore';
 import VideoCard from '../../components/VideoCard';
-import YTVideos from '../../Mocks/youtube-videos-mock.json';
+import useVideos from '../../utils/hooks/useVideo';
 
-import { Title, MainSection, VideosContainer } from './Home.styles';
+import { Title, MainSection, VideosContainer, Error } from './Home.styles';
 
 function HomePage() {
+  const { videos, error } = useVideos('wizeline');
   return (
     <MainSection>
+      {error && <Error>Error loading the videos</Error>}
       <Title>Explore new videos</Title>
       <Explore />
       <VideosContainer>
-        {YTVideos.items.map((item) =>
+        {videos?.items.map((item) =>
           item.id.kind.match(/video/i) ? (
             <VideoCard key={item.id.videoId} video={item} />
           ) : (
