@@ -12,7 +12,7 @@ import {
 const VideoCard = ({ id, title, description, thumbnails, channelTitle, related }) => {
   return (
     <LinkTo to={`/video?id=${id}`}>
-      <VideoWrapper related>
+      <VideoWrapper related={related}>
         <Image thumbnails={thumbnails} related={related} />
         <InfoContainer>
           <Title>{title}</Title>
