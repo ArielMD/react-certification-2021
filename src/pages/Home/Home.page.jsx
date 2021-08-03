@@ -16,9 +16,21 @@ function HomePage() {
       <VideosContainer>
         {videos?.items.map((item) =>
           item.id.kind.match(/video/i) ? (
-            <VideoCard key={item.id.videoId} video={item} />
+            <VideoCard
+              key={item.id.videoId}
+              title={item.snippet.title}
+              description={item.snippet.description}
+              thumbnails={item.snippet.thumbnails}
+              channelTitle={item.snippet.channelTitle}
+            />
           ) : (
-            <ChannelCard key={item.id.channelId} channel={item} />
+            <ChannelCard
+              key={item.id.channelId}
+              title={item.snippet.title}
+              description={item.snippet.description}
+              thumbnails={item.snippet.thumbnails}
+              channelTitle={item.snippet.channelTitle}
+            />
           )
         )}
       </VideosContainer>
