@@ -9,7 +9,7 @@ export const VideoWrapper = styled.div`
   border-radius: 1.5rem;
   box-shadow: 0px 2px 4px #00000050;
   cursor: pointer;
-  background-color: white;
+  background-color: ${(props) => props.theme.bgCard};
   transition: transform 0.3s ease-in-out;
 
   :hover {
@@ -40,12 +40,12 @@ export const InfoContainer = styled.div`
 `;
 
 export const ChannelTitle = styled.p`
-  color: #53535f;
+  color: ${(props) => props.theme.colorCard};
   font-size: 14px;
 `;
 export const Title = styled.p`
   font-size: 18px;
-  color: black;
+  color: ${(props) => props.theme.colorTitleCard};
   @media (min-width: 992px) {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -55,7 +55,7 @@ export const Title = styled.p`
   }
 `;
 export const Description = styled.p`
-  color: #53535f;
+  color: ${(props) => props.theme.colorCard};
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;

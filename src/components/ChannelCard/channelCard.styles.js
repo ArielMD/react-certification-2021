@@ -9,7 +9,7 @@ export const ChannelWrapper = styled.div`
   border-radius: 1.5rem;
   box-shadow: 0px 2px 4px #00000050;
   cursor: pointer;
-  background-color: white;
+  background-color: ${(props) => props.theme.bgCardc};
   transition: transform 0.3s ease-in-out;
   display: flex;
 
@@ -47,7 +47,7 @@ export const InfoContainer = styled.div`
 
 export const ChannelTitle = styled.p`
   font-size: 18px;
-
+  color: ${(props) => props.theme.colorTitleCard};
   @media (min-width: 992px) {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -58,7 +58,7 @@ export const ChannelTitle = styled.p`
 `;
 
 export const Description = styled.p`
-  color: #53535f;
+  color: ${(props) => props.theme.colorCard};
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
