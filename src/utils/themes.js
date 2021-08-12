@@ -35,6 +35,11 @@ export const dark = {
   bgSidebar: colors.darkBgSidebar,
   colorSidebar: colors.lightGray,
   hoverSidebar: colors.darkHoverSidebar,
+
+  bgProfile: colors.darkBgSidebar,
+  HoverProfile: colors.darkHoverSidebar,
+  colorProfile: colors.white,
+  colorSwitch: { bg: colors.gray, color: colors.darkBgSidebar },
 };
 
 export const light = {
@@ -53,4 +58,9 @@ export const light = {
   bgSidebar: colors.lightBgSidebar,
   colorSidebar: colors.darkGray,
   hoverSidebar: colors.lightHoverSidebar,
+
+  bgProfile: colors.white,
+  HoverProfile: colors.lightHoverSidebar,
+  colorProfile: colors.black,
+  colorSwitch: { bg: colors.lightGray, color: colors.white },
 };

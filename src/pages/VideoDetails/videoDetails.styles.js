@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 3rem 3rem 0 3rem;
-
+  background-color: ${(props) => props.theme.bgPage};
+  color: ${(props) => props.theme.title};
   @media (min-width: 1200px) {
     flex-direction: row;
   }
@@ -13,7 +14,6 @@ export const Container = styled.div`
 export const VideoDetailsContainer = styled.div`
   width: 100%;
   height: auto;
-  background-color: white;
   @media (min-width: 1200px) {
     width: 75%;
   }
@@ -61,16 +61,15 @@ export const Button = styled.button`
 export const Icon = styled.i`
   margin-right: 0.3rem;
   font-size: 1.2rem;
+  color: ${(props) => props.theme.title};
   @media (min-width: 576px) {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 `;
 
 export const Label = styled.label`
-  font-size: 1.1rem;
-  @media (min-width: 576px) {
-    font-size: 1rem;
-  }
+  font-size: 0.8rem;
+  color: ${(props) => props.theme.title};
 `;
 
 export const Channel = styled.p`
@@ -80,5 +79,6 @@ export const Channel = styled.p`
 `;
 
 export const Description = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  white-space: pre-line;
 `;

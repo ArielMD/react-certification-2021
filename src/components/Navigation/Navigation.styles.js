@@ -44,6 +44,7 @@ export const Name = styled.span`
 
   @media (min-width: 768px) {
     display: block;
+    color: ${(props) => props.theme.title};
   }
 `;
 

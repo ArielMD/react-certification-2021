@@ -7,6 +7,7 @@ export const RelatedVideosContainer = styled.div`
 
   @media (min-width: 1200px) {
     flex-direction: column;
+    justify-content: flex-start;
   }
 `;
 

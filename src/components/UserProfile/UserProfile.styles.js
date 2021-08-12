@@ -4,7 +4,8 @@ export const ProfileContainer = styled.div`
   width: 16rem;
   height: auto;
   position: absolute;
-  background-color: white;
+  background-color: ${(props) => props.theme.bgProfile};
+  color: ${(props) => props.theme.colorProfile};
   right: 0;
   top: 70px;
   box-shadow: 0px 2px 4px #00000050;
@@ -65,13 +66,12 @@ export const OptionContainer = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #b6e8ff;
+    background-color: ${(props) => props.theme.HoverProfile};
   }
 `;
 
 export const OptionImage = styled.i`
   padding-right: 1rem;
-  color: #0e0e01;
   font-size: 1rem;
 `;
 
@@ -107,7 +107,7 @@ export const Slider = styled.span`
   right: 0;
   bottom: 0;
   border-radius: 1rem;
-  background-color: #e5e5e5;
+  background-color: ${(props) => props.theme.colorSwitch.bg};
 
   ::before {
     position: absolute;
@@ -116,7 +116,7 @@ export const Slider = styled.span`
     width: 1.2rem;
     left: 3px;
     bottom: 2px;
-    background-color: white;
+    background-color: ${(props) => props.theme.colorSwitch.color};
     transition: transform 0.3s ease-in-out;
     border-radius: 1rem;
   }

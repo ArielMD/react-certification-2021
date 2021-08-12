@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const SearchContainer = styled.div``;
+export const SearchContainer = styled.div`
+  background-color: ${(props) => props.theme.bgPage};
+  min-height: calc(100vh - 70px);
+`;
 
 export const VideosContainer = styled.div`
   display: flex;
@@ -11,6 +14,7 @@ export const VideosContainer = styled.div`
 export const SearchResult = styled.p`
   padding: 1rem 0;
   text-align: center;
+  color: ${(props) => props.theme.title};
 `;
 
 export const Error = styled.div`
