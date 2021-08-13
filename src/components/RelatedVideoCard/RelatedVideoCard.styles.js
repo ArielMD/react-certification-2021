@@ -2,65 +2,54 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const VideoWrapper = styled.div`
-  width: 25rem;
-  height: auto; //20rem
-  padding-bottom: 1rem;
+  display: flex;
   margin: 1rem 1rem;
-  border-radius: 1.5rem;
-  box-shadow: 0px 2px 4px #00000050;
-  cursor: pointer;
   background-color: ${(props) => props.theme.bgCard};
-  transition: transform 0.3s ease-in-out;
-
-  :hover {
-    transform: scale(1.1);
-  }
 
   @media (min-width: 992px) {
-    width: 20rem;
-    height: 16rem;
+    /* width: 20rem;
+    height: 16rem; */
   }
 `;
 
 export const Image = styled.img`
-  background-image: url(${(props) => props.thumbnails?.high.url});
-  width: 100%;
-  height: 14.3rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0rem;
-  border-radius: 1.5rem 1.5rem 0 0;
-  @media (min-width: 992px) {
+  width: 10rem;
+  /* @media (min-width: 992px) {
     height: 70%;
-  }
+  } */
 `;
 
 export const InfoContainer = styled.div`
-  margin: 0 1rem;
+  padding: 0 1rem 0 1rem;
+  flex: 1;
+  padding-left: 1rem;
 `;
 
 export const ChannelTitle = styled.p`
   color: ${(props) => props.theme.colorCard};
   font-size: 14px;
 `;
+
 export const Title = styled.p`
-  font-size: 18px;
+  font-size: 1rem;
   color: ${(props) => props.theme.colorTitleCard};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
   @media (min-width: 992px) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines to show */
-    -webkit-box-orient: vertical;
   }
 `;
+
 export const Description = styled.p`
   color: ${(props) => props.theme.colorCard};
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 `;
 
