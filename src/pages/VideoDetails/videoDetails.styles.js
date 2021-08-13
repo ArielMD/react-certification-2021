@@ -15,6 +15,10 @@ export const Container = styled.div`
 export const VideoDetailsContainer = styled.div`
   width: 100%;
   height: auto;
+
+  @media (min-width: 1200px) {
+    flex: 1;
+  }
 `;
 
 export const VideoPlayer = styled.iframe`
@@ -80,4 +84,29 @@ export const Channel = styled.p`
 export const Description = styled.p`
   font-size: 0.8rem;
   white-space: pre-line;
+
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &.extended {
+    display: block;
+  }
+`;
+
+export const DescriptionButton = styled.button`
+  width: 100%;
+  padding: 0.3rem;
+  margin-top: 1rem;
+  color: ${(props) => props.theme.title};
+  background-color: ${(props) => props.theme.bgPage};
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.hoverSidebar};
+  }
 `;

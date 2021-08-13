@@ -20,7 +20,6 @@ const UserProfile = ({ isProfileVisible }) => {
   const { toggleTheme, isDarkMode } = useTheme();
 
   const handleTheme = () => {
-    console.log(isDarkMode);
     toggleTheme();
   };
 
@@ -46,7 +45,7 @@ const UserProfile = ({ isProfileVisible }) => {
               type="checkbox"
               id="dark"
               className="checkbox"
-              value={isDarkMode}
+              checked={isDarkMode}
               onChange={handleTheme}
             />
             <Slider className="slider" />

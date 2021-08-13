@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RelatedVideos from '../../components/RelatedVideos';
 import useQuery from '../../utils/hooks/useQuery';
 import useVideoDetails from '../../utils/hooks/useVideoDetails';
@@ -14,12 +14,17 @@ import {
   Label,
   Channel,
   Description,
+  DescriptionButton,
 } from './videoDetails.styles';
 
 const VideoDetails = () => {
+  const [isExtendedDescription, setIsExtendedDescription] = useState(false);
   const { queryId } = useQuery();
-
   const { video } = useVideoDetails(queryId);
+
+  const handleDescription = () => {
+    setIsExtendedDescription((prevState) => !prevState);
+  };
   return (
     <Container>
       <VideoDetailsContainer>
@@ -52,7 +57,12 @@ const VideoDetails = () => {
           </ControlContainer>
           <div>
             <Channel>{video?.snippet.channelTitle}</Channel>
-            <Description>{video?.snippet.description}</Description>
+            <Description className={isExtendedDescription && 'extended'}>
+              {video?.snippet.description}
+            </Description>
+            <DescriptionButton onClick={handleDescription}>
+              <strong>{isExtendedDescription ? 'show less' : 'show more'}</strong>
+            </DescriptionButton>
           </div>
         </Details>
         <div>
