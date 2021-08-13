@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { useEffect, useState } from 'react';
 import videoService from '../../../services/videos.services';
 
@@ -6,19 +5,18 @@ const useVideo = (query) => {
   const [videos, setVideos] = useState(null);
   const [error, setError] = useState(null);
 
-  const search = async () => {
-    try {
-      const response = await videoService().search(query);
-      setVideos(response);
-    } catch (err) {
-      setError(err);
-    }
-  };
-
   useEffect(() => {
-    query && search();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const search = async () => {
+      try {
+        const response = await videoService().search(query);
+        setVideos(response);
+      } catch (err) {
+        setError(err);
+      }
+    };
+
+    if (query) search();
+  }, [query]);
 
   return { videos, error };
 };

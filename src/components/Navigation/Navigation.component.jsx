@@ -52,7 +52,7 @@ const Navigation = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(`search?search_query=${search}`);
+    history.push(`search?q=${search}`);
   };
 
   useEffect(() => {

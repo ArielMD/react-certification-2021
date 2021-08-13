@@ -16,7 +16,7 @@ const videoService = () => {
     const response = await axios({
       baseURL: BASE_URL,
       method: 'GET',
-      url: `videos?id=${id}&key=${YOUTUBE_KEY}&part=snippet,contentDetails,statistics,status&maxResults=20`,
+      url: `videos?id=${id}&key=${YOUTUBE_KEY}&part=snippet,contentDetails,statistics,status`,
     });
 
     return response.data;
@@ -26,7 +26,7 @@ const videoService = () => {
     const response = await axios({
       baseURL: BASE_URL,
       method: 'GET',
-      url: `search?part=snippet&relatedToVideoId=${id}&type=video&key=${YOUTUBE_KEY}`,
+      url: `search?part=snippet&relatedToVideoId=${id}&type=video&key=${YOUTUBE_KEY}&maxResults=10`,
     });
 
     return response.data;

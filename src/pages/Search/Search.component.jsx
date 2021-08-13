@@ -6,15 +6,20 @@ import useVideo from '../../utils/hooks/useVideo';
 import { SearchContainer, VideosContainer, SearchResult, Error } from './search.styles';
 
 const Search = () => {
-  const query = useQuery();
-  const { videos, error } = useVideo(query.get('search_query'));
+  const { querySearch } = useQuery();
+  const { videos, error } = useVideo(querySearch);
 
   return (
     <SearchContainer>
       {error && <Error>Error loading the videos</Error>}
       <SearchResult>
-        Search results: <strong>{query.get('search_query')}</strong>
+        Search results: <strong>{querySearch}</strong>
       </SearchResult>
+      {videos?.items.length === 0 && (
+        <SearchResult>
+          Found <strong> 0</strong> results
+        </SearchResult>
+      )}
       <VideosContainer>
         {videos?.items.map((item) =>
           item.id.kind.match(/video/i) ? (

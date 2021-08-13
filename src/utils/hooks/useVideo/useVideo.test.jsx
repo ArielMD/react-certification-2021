@@ -13,7 +13,7 @@ const ComponentTest = () => {
 };
 
 describe('Video Card component', () => {
-  it('should contains a result', async () => {
+  it('should contain a result', async () => {
     render(<ComponentTest />);
 
     const errorElement = screen.queryByText(/error/i);

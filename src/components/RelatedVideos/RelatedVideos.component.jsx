@@ -1,12 +1,12 @@
 import React from 'react';
 import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
 import useQuery from '../../utils/hooks/useQuery';
-import VideoCard from '../VideoCard';
+import VideoCard from '../RelatedVideoCard';
 import { RelatedVideosContainer, Title } from './RelatedVideos.styles';
 
 const RelatedVideos = () => {
-  const query = useQuery();
-  const { videos, error } = useRelatedVideos(query.get('id'));
+  const { queryId } = useQuery();
+  const { videos, error } = useRelatedVideos(queryId);
 
   return (
     <RelatedVideosContainer>

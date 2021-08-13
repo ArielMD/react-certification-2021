@@ -17,14 +17,14 @@ import {
 } from './videoDetails.styles';
 
 const VideoDetails = () => {
-  const query = useQuery();
+  const { queryId } = useQuery();
 
-  const { video } = useVideoDetails(query.get('id'));
+  const { video } = useVideoDetails(queryId);
   return (
     <Container>
       <VideoDetailsContainer>
         <VideoPlayer
-          src={`https://www.youtube.com/embed/${query.get('id')}?autoplay=1`}
+          src={`https://www.youtube.com/embed/${queryId}?autoplay=1`}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

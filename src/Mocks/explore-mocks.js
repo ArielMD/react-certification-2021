@@ -8,24 +8,24 @@ export const items = [
     id: 1,
     name: 'React',
     image: react,
-    url: 'search?search_query=react library',
+    url: 'search?q=react library',
   },
   {
     id: 2,
     name: 'Games',
     image: games,
-    url: 'search?search_query=games',
+    url: 'search?q=games',
   },
   {
     id: 3,
     name: 'Technology',
     image: technology,
-    url: 'search?search_query=Technology',
+    url: 'search?q=Technology',
   },
   {
     id: 4,
     name: 'Learning',
     image: learning,
-    url: 'Learning',
+    url: 'search?q=learning',
   },
 ];
