@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import VideoCard from './VideoCard.component';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import VideoCard from './VideoCard.component';
 
 beforeEach(() => {
   render(

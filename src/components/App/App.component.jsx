@@ -1,20 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import AuthProvider from '../../providers/Auth';
+import HOCThemeProvider from '../../providers/Theme/Theme.provider';
 import HomePage from '../../pages/Home';
 import SearchPage from '../../pages/Search';
 import VideoDetails from '../../pages/VideoDetails';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 
-import { dark } from '../../utils/themes';
-
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <ThemeProvider theme={dark}>
+        <HOCThemeProvider>
           <Layout>
             <Switch>
               <Route exact path="/">
@@ -31,7 +29,7 @@ function App() {
               </Route>
             </Switch>
           </Layout>
-        </ThemeProvider>
+        </HOCThemeProvider>
       </AuthProvider>
     </BrowserRouter>
   );
