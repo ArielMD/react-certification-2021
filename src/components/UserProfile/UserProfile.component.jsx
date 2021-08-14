@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useTheme } from '../../providers/Theme/Theme.provider';
 import {
   ProfileContainer,
   UserInformation,
@@ -16,6 +17,11 @@ import {
 
 const UserProfile = ({ isProfileVisible }) => {
   const profileRef = useRef(null);
+  const { toggleTheme, isDarkMode } = useTheme();
+
+  const handleTheme = () => {
+    toggleTheme();
+  };
 
   return (
     <CSSTransition
@@ -35,7 +41,13 @@ const UserProfile = ({ isProfileVisible }) => {
           <OptionImage className="far fa-moon" />
           <OptionName>Dark Mode</OptionName>
           <ToggleButton htmlFor="dark">
-            <Checkbox type="checkbox" id="dark" className="checkbox" />
+            <Checkbox
+              type="checkbox"
+              id="dark"
+              className="checkbox"
+              checked={isDarkMode}
+              onChange={handleTheme}
+            />
             <Slider className="slider" />
           </ToggleButton>
         </OptionContainer>

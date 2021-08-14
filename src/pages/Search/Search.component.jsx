@@ -1,18 +1,25 @@
 import React from 'react';
-import ChannelCard from '../../components/ChannelCard';
-import Explore from '../../components/Explore';
 import VideoCard from '../../components/VideoCard';
-import useVideos from '../../utils/hooks/useVideo';
+import ChannelCard from '../../components/ChannelCard';
+import useQuery from '../../utils/hooks/useQuery';
+import useVideo from '../../utils/hooks/useVideo';
+import { SearchContainer, VideosContainer, SearchResult, Error } from './search.styles';
 
-import { Title, MainSection, VideosContainer, Error } from './Home.styles';
+const Search = () => {
+  const { querySearch } = useQuery();
+  const { videos, error } = useVideo(querySearch);
 
-function HomePage() {
-  const { videos, error } = useVideos('wizeline');
   return (
-    <MainSection>
+    <SearchContainer>
       {error && <Error>Error loading the videos</Error>}
-      <Title>Explore new videos</Title>
-      <Explore />
+      <SearchResult>
+        Search results: <strong>{querySearch}</strong>
+      </SearchResult>
+      {videos?.items.length === 0 && (
+        <SearchResult>
+          Found <strong> 0</strong> results
+        </SearchResult>
+      )}
       <VideosContainer>
         {videos?.items.map((item) =>
           item.id.kind.match(/video/i) ? (
@@ -35,8 +42,8 @@ function HomePage() {
           )
         )}
       </VideosContainer>
-    </MainSection>
+    </SearchContainer>
   );
-}
+};
 
-export default HomePage;
+export default Search;

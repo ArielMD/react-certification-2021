@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import VideoCard from './VideoCard.component';
+import VideoCard from './RelatedVideoCard.component';
 
 beforeEach(() => {
   render(
@@ -24,20 +24,20 @@ beforeEach(() => {
   );
 });
 
-describe('Video Card component', () => {
-  it('should contains a title', () => {
+describe('Related Video Card component', () => {
+  it('should contain a title', () => {
     const titleElement = screen.queryByText(/title/i);
 
     expect(titleElement).toBeInTheDocument();
   });
 
-  it('should contains a description', () => {
+  it('should contain a description', () => {
     const descriptionElement = screen.queryByText(/description/i);
 
     expect(descriptionElement).toBeInTheDocument();
   });
 
-  it('should contains a channel', () => {
+  it('should contain a channel', () => {
     const channelElement = screen.queryByText(/channel/i);
 
     expect(channelElement).toBeInTheDocument();

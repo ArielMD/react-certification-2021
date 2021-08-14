@@ -7,13 +7,20 @@ import {
   Title,
   Description,
   LinkTo,
-} from './videoCard.styles';
+} from './RelatedVideoCard.styles';
 
-const VideoCard = ({ id, title, description, thumbnails, channelTitle, related }) => {
+const RelatedVideoCard = ({
+  id,
+  title,
+  description,
+  thumbnails,
+  channelTitle,
+  related,
+}) => {
   return (
     <LinkTo to={`/video?id=${id}`}>
       <VideoWrapper related={related}>
-        <Image thumbnails={thumbnails} related={related} />
+        <Image src={thumbnails?.high.url} related={related} loading="lazy" />
         <InfoContainer>
           <Title>{title}</Title>
           <ChannelTitle>{channelTitle}</ChannelTitle>
@@ -24,4 +31,4 @@ const VideoCard = ({ id, title, description, thumbnails, channelTitle, related }
   );
 };
 
-export default VideoCard;
+export default RelatedVideoCard;

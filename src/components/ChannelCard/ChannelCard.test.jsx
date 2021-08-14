@@ -2,20 +2,18 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ChannelCard from './ChannelCard.component';
 
-const mock = {
-  snippet: {
-    description: 'Description test',
-    thumbnails: {
-      high: {
-        url: 'url test',
-      },
-    },
-    channelTitle: 'Channel test',
-  },
-};
-
 beforeEach(() => {
-  render(<ChannelCard channel={mock} />);
+  render(
+    <ChannelCard
+      description="Description test"
+      thumbnails={{
+        high: {
+          url: 'url test',
+        },
+      }}
+      channelTitle="Channel test"
+    />
+  );
 });
 
 describe('Channel card component', () => {

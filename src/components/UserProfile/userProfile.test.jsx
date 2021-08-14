@@ -2,9 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import UserProfile from './UserProfile.component';
+import HOCTheme from '../../providers/Theme';
 
 beforeEach(() => {
-  render(<UserProfile isProfileVisible />);
+  render(
+    <HOCTheme>
+      <UserProfile isProfileVisible />
+    </HOCTheme>
+  );
 });
 
 describe('UserProfile component', () => {
@@ -27,12 +32,20 @@ describe('UserProfile component', () => {
   });
 
   it('should render UserProdfile when showProfile prop is true', () => {
-    const { container } = render(<UserProfile isProfileVisible />);
+    const { container } = render(
+      <HOCTheme>
+        <UserProfile isProfileVisible />
+      </HOCTheme>
+    );
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it('should not render UserProdfile when showProfile prop is false', () => {
-    const { container } = render(<UserProfile isProfileVisible={false} />);
+  it('should not render UserProfile when showProfile prop is false', () => {
+    const { container } = render(
+      <HOCTheme>
+        <UserProfile isProfileVisible={false} />
+      </HOCTheme>
+    );
     expect(container.firstChild).not.toBeInTheDocument();
   });
 });

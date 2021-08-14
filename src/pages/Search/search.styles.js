@@ -1,22 +1,20 @@
 import styled from 'styled-components';
 
-export const MainSection = styled.main`
-  width: 100%;
+export const SearchContainer = styled.div`
   background-color: ${(props) => props.theme.bgPage};
   min-height: calc(100vh - 70px);
-`;
-
-export const Title = styled.h1`
-  font-size: 36px;
-  text-align: center;
-  padding: 1rem 0;
-  color: ${(props) => props.theme.title};
 `;
 
 export const VideosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+`;
+
+export const SearchResult = styled.p`
+  padding: 1rem 0;
+  text-align: center;
+  color: ${(props) => props.theme.title};
 `;
 
 export const Error = styled.div`

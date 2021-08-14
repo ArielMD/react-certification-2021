@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const VideoWrapper = styled.div`
   width: 25rem;
@@ -8,7 +9,7 @@ export const VideoWrapper = styled.div`
   border-radius: 1.5rem;
   box-shadow: 0px 2px 4px #00000050;
   cursor: pointer;
-  background-color: white;
+  background-color: ${(props) => props.theme.bgCard};
   transition: transform 0.3s ease-in-out;
 
   :hover {
@@ -22,7 +23,7 @@ export const VideoWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  background-image: url(${(props) => props.thumbnails.high.url});
+  background-image: url(${(props) => props.thumbnails?.high.url});
   width: 100%;
   height: 14.3rem;
   background-repeat: no-repeat;
@@ -39,12 +40,12 @@ export const InfoContainer = styled.div`
 `;
 
 export const ChannelTitle = styled.p`
-  color: #53535f;
+  color: ${(props) => props.theme.colorCard};
   font-size: 14px;
 `;
 export const Title = styled.p`
   font-size: 18px;
-
+  color: ${(props) => props.theme.colorTitleCard};
   @media (min-width: 992px) {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -54,11 +55,15 @@ export const Title = styled.p`
   }
 `;
 export const Description = styled.p`
-  color: #53535f;
+  color: ${(props) => props.theme.colorCard};
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1; /* number of lines to show */
   -webkit-box-orient: vertical;
+`;
+
+export const LinkTo = styled(Link)`
+  text-decoration: none;
 `;

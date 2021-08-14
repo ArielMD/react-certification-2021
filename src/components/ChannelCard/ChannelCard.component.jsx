@@ -7,10 +7,7 @@ import {
   Description,
 } from './channelCard.styles';
 
-const ChannelCard = ({ channel }) => {
-  const {
-    snippet: { description, thumbnails, channelTitle },
-  } = channel;
+const ChannelCard = ({ description, thumbnails, channelTitle }) => {
   return (
     <ChannelWrapper>
       <Image thumbnails={thumbnails} />

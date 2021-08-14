@@ -4,17 +4,21 @@ import { render, screen } from '@testing-library/react';
 
 import Navigation from './Navigation.component';
 
+import HOCTheme from '../../providers/Theme';
+
 beforeEach(() => {
   render(
-    <BrowserRouter>
-      <Switch>
-        <Route>
-          <div id="main-container">
-            <Navigation />
-          </div>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <HOCTheme>
+      <BrowserRouter>
+        <Switch>
+          <Route>
+            <div id="main-container">
+              <Navigation />
+            </div>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </HOCTheme>
   );
 });
 

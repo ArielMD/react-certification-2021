@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import useClickOutside from '../../utils/hooks/useClickOutside';
 import useOutside from '../../utils/hooks/useOutside';
 import UserProfile from '../UserProfile';
@@ -25,6 +27,8 @@ const Navigation = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [search, setSearch] = useState('');
+  const history = useHistory();
 
   const inputRef = useRef(null);
   const searchFormRef = useRef(null);
@@ -46,10 +50,14 @@ const Navigation = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    history.push(`search?q=${search}`);
+  };
+
   useEffect(() => {
     if (isSearchVisible) {
       inputRef.current.focus();
-      console.log(inputRef.current);
     }
   }, [isSearchVisible]);
 
@@ -60,14 +68,25 @@ const Navigation = () => {
           <MenuButton onClick={toggleSidebar}>
             <MenuIcon className="fas fa-bars" size="43" />
           </MenuButton>
-
-          <Image src="logo.svg" alt="" size="50" />
+          <Link to="/">
+            <Image src="logo.svg" alt="" size="50" />
+          </Link>
           <Name>Wizeline Videos </Name>
         </Content>
 
-        <SearchForm isVisible={isSearchVisible} ref={searchFormRef}>
-          <SearchInput type="text" placeholder="Search" ref={inputRef} />
-          <SearchButton>
+        <SearchForm
+          onSubmit={handleSubmit}
+          isVisible={isSearchVisible}
+          ref={searchFormRef}
+        >
+          <SearchInput
+            type="text"
+            placeholder="Search"
+            ref={inputRef}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <SearchButton type="submit">
             <Icon className="fas fa-search" size="25" />
           </SearchButton>
         </SearchForm>
