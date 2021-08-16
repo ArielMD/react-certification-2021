@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import useVideo from './useVideo';
+import useRelatedVideos from './useRelatedVideos';
 
 const ComponentTest = () => {
-  const { videos, error } = useVideo('wizeline');
+  const { videos, error } = useRelatedVideos(1);
   return (
     <div>
       {error && <div>error</div>}
@@ -18,7 +18,7 @@ const ComponentTest = () => {
   );
 };
 
-describe('custom hook useVideo', () => {
+describe('custom hook useRelatedVideos', () => {
   it('Component test should not render a error', () => {
     render(<ComponentTest />);
 
@@ -29,10 +29,10 @@ describe('custom hook useVideo', () => {
   it('Component test should get videos and render them', async () => {
     render(<ComponentTest />);
 
-    const titleVideoElement = await screen.findByText(
-      /Founder & CEO Bismarck Lepe on growth opportunities at Wizeline and his career-path experience as an early Google employee. Join our team!/i
+    const videoTitleElement = await screen.findByText(
+      /Wizeline Guadalajara | Bringing Silicon Valley to Mexico/i
     );
 
-    expect(titleVideoElement).toBeInTheDocument();
+    expect(videoTitleElement).toBeInTheDocument();
   });
 });
