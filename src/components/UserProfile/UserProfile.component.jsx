@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { useTheme } from '../../providers/Theme/Theme.provider';
+import useTheme from '../../utils/hooks/useTheme';
 import {
   ProfileContainer,
   UserInformation,
