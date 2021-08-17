@@ -17,6 +17,7 @@ export const Image = styled.img`
 export const InfoContainer = styled.div`
   padding: 0 1rem 0 1rem;
   padding-left: 1rem;
+  width: 75%;
   @media (min-width: 1200px) {
     width: 60%;
   }

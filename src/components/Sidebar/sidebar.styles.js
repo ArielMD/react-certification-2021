@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const SidebarWrapper = styled.aside`
-  position: absolute;
+  position: fixed;
   width: 15rem;
   height: calc(100% - 70px);
   top: 70px;
