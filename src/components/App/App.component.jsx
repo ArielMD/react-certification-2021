@@ -6,27 +6,30 @@ import SearchPage from '../../pages/Search';
 import VideoDetails from '../../pages/VideoDetails';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
+import GlobalProvider from '../../providers/Global';
 
 function App() {
   return (
     <BrowserRouter>
       <HOCThemeProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/search">
-              <SearchPage />
-            </Route>
-            <Route exact path="/video">
-              <VideoDetails />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </Layout>
+        <GlobalProvider>
+          <Layout>
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/search">
+                <SearchPage />
+              </Route>
+              <Route exact path="/video">
+                <VideoDetails />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Layout>
+        </GlobalProvider>
       </HOCThemeProvider>
     </BrowserRouter>
   );

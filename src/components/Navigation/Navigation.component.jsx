@@ -22,13 +22,13 @@ import {
   SearchButton,
   ShowSearchButton,
 } from './Navigation.styles';
-import useTheme from '../../utils/hooks/useTheme';
+import useSearch from '../../utils/hooks/useSearch';
 
 const Navigation = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const { search, setSearch } = useTheme();
+  const { search, setSearch } = useSearch();
   const history = useHistory();
 
   const inputRef = useRef(null);

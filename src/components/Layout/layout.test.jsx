@@ -4,19 +4,22 @@ import { render, screen } from '@testing-library/react';
 
 import Layout from './Layout.component';
 import HOCTheme from '../../providers/Theme';
+import GlobalProvider from '../../providers/Global';
 
 beforeEach(() => {
   render(
     <HOCTheme>
-      <BrowserRouter>
-        <Switch>
-          <Route>
-            <Layout>
-              <div>child</div>
-            </Layout>
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route>
+              <Layout>
+                <div>child</div>
+              </Layout>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </GlobalProvider>
     </HOCTheme>
   );
 });

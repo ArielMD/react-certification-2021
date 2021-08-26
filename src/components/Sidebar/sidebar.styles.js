@@ -47,4 +47,5 @@ export const ItemIcon = styled.i`
 export const ItemName = styled.p`
   font-size: 1.3rem;
   margin-left: 1.1rem;
+  overflow-x: hidden;
 `;
