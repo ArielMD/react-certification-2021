@@ -6,16 +6,22 @@ const useVideo = (query) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isSubscribed = true;
+
     const search = async () => {
       try {
         const response = await videoService().search(query);
-        setVideos(response);
+        if (isSubscribed) setVideos(response);
       } catch (err) {
         setError(err);
       }
     };
 
     if (query) search();
+
+    return () => {
+      isSubscribed = false;
+    };
   }, [query]);
 
   return { videos, error };

@@ -9,6 +9,7 @@ export const Navbar = styled.nav`
   box-shadow: 0px 2px 4px #00000050;
   position: fixed;
   z-index: 10;
+  top: 0;
 `;
 
 export const Button = styled.button`

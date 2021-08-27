@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.main`
   width: 100%;
-  background-color: ${(props) => props.theme.bgPage};
-  min-height: calc(100vh - 70px);
+  height: 100%;
 `;
 
 export const Title = styled.h1`

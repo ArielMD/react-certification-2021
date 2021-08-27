@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const SidebarWrapper = styled.aside`
-  position: absolute;
+  position: fixed;
   width: 15rem;
   height: calc(100% - 70px);
   top: 70px;
@@ -47,4 +47,5 @@ export const ItemIcon = styled.i`
 export const ItemName = styled.p`
   font-size: 1.3rem;
   margin-left: 1.1rem;
+  overflow-x: hidden;
 `;

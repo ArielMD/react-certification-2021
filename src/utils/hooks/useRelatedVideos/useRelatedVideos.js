@@ -6,17 +6,22 @@ const useRelatedVideos = (id) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let isSubscribed = true;
+
     const findById = async () => {
       try {
         const response = await videoService().getRelatedVideosById(id);
-        console.log(response);
-        setVideos(response);
+        if (isSubscribed) setVideos(response);
       } catch (err) {
         setError(err);
       }
     };
 
     if (id) findById();
+
+    return () => {
+      isSubscribed = false;
+    };
   }, [id]);
 
   return { videos, error };

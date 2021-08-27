@@ -5,19 +5,22 @@ import { render, screen } from '@testing-library/react';
 import Navigation from './Navigation.component';
 
 import HOCTheme from '../../providers/Theme';
+import GlobalProvider from '../../providers/Global';
 
 beforeEach(() => {
   render(
     <HOCTheme>
-      <BrowserRouter>
-        <Switch>
-          <Route>
-            <div id="main-container">
-              <Navigation />
-            </div>
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route>
+              <div id="main-container">
+                <Navigation />
+              </div>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </GlobalProvider>
     </HOCTheme>
   );
 });
