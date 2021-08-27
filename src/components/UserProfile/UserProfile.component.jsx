@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { GlobalContext } from '../../providers/Global';
 import useTheme from '../../utils/hooks/useTheme';
 import {
   ProfileContainer,
@@ -10,6 +11,7 @@ import {
   OptionContainer,
   OptionImage,
   OptionName,
+  Logout,
   ToggleButton,
   Checkbox,
   Slider,
@@ -18,7 +20,7 @@ import {
 const UserProfile = ({ isProfileVisible }) => {
   const profileRef = useRef(null);
   const { toggleTheme, isDarkMode } = useTheme();
-
+  const { currentUser, logoutUser } = useContext(GlobalContext);
   const handleTheme = () => {
     toggleTheme();
   };
@@ -32,11 +34,15 @@ const UserProfile = ({ isProfileVisible }) => {
       nodeRef={profileRef}
     >
       <ProfileContainer ref={profileRef}>
-        <UserInformation>
-          <UserPicture className="fas fa-user" />
-          <Username>Ariel May</Username>
-        </UserInformation>
-        <LineDivider />
+        {currentUser && (
+          <>
+            <UserInformation>
+              <UserPicture src={currentUser.avatarUrl} alt="user" />
+              <Username>{currentUser.name}</Username>
+            </UserInformation>
+            <LineDivider />
+          </>
+        )}
         <OptionContainer>
           <OptionImage className="far fa-moon" />
           <OptionName>Dark Mode</OptionName>
@@ -60,10 +66,10 @@ const UserProfile = ({ isProfileVisible }) => {
           </ToggleButton>
         </OptionContainer>
         <LineDivider />
-        <OptionContainer>
+        <Logout onClick={logoutUser}>
           <OptionImage className="fas fa-sign-out-alt" />
           <OptionName>Log out</OptionName>
-        </OptionContainer>
+        </Logout>
       </ProfileContainer>
     </CSSTransition>
   );

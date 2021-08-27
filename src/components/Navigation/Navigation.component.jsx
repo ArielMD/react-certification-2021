@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import useClickOutside from '../../utils/hooks/useClickOutside';
 import useOutside from '../../utils/hooks/useOutside';
 import UserProfile from '../UserProfile';
 import Sidebar from '../Sidebar';
+import { GlobalContext } from '../../providers/Global';
 import {
   Navbar,
   MenuButton,
@@ -30,6 +31,7 @@ const Navigation = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const { search, setSearch } = useSearch();
   const history = useHistory();
+  const { setIsModalOpen, currentUser } = useContext(GlobalContext);
 
   const inputRef = useRef(null);
   const searchFormRef = useRef(null);
@@ -54,6 +56,10 @@ const Navigation = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     history.push(`search?q=${search}`);
+  };
+
+  const handleLogin = () => {
+    setIsModalOpen(true);
   };
 
   useEffect(() => {
@@ -96,7 +102,7 @@ const Navigation = () => {
           <ShowSearchButton onClick={toggleSearch} ref={SearchButtonRef}>
             <Icon className="fas fa-search" size="25" />
           </ShowSearchButton>
-          <LoginButton>Log in</LoginButton>
+          {!currentUser && <LoginButton onClick={handleLogin}>Log in</LoginButton>}
           <UserPicture ref={profileRef}>
             <UserButton onClick={toggleProfileUser}>
               <UserIcon className="fas fa-user" size="40" />
