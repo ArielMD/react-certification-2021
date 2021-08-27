@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import RelatedVideos from '../../components/RelatedVideos';
+import { GlobalContext } from '../../providers/Global/Global.provider';
 import useQuery from '../../utils/hooks/useQuery';
 import useVideoDetails from '../../utils/hooks/useVideoDetails';
 import {
@@ -25,6 +26,13 @@ const VideoDetails = () => {
   const handleDescription = () => {
     setIsExtendedDescription((prevState) => !prevState);
   };
+
+  const { addHistory } = useContext(GlobalContext);
+
+  useEffect(() => {
+    if (video) addHistory(video);
+  }, [addHistory, video]);
+
   return (
     <Container>
       <VideoDetailsContainer>
