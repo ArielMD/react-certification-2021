@@ -8,6 +8,7 @@ import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import GlobalProvider from '../../providers/Global';
 import Favorites from '../../pages/Favorites';
+import History from '../../pages/History';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
                 <Favorites />
               </Route>
               <Route exact path="/history">
-                <Favorites />
+                <History />
               </Route>
               <Route path="*">
                 <NotFound />
