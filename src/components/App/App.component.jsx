@@ -9,6 +9,7 @@ import Layout from '../Layout';
 import GlobalProvider from '../../providers/Global';
 import Favorites from '../../pages/Favorites';
 import History from '../../pages/History';
+import PrivateRoute from '../PrivateRoute/PrivateRoute.component';
 
 function App() {
   return (
@@ -26,9 +27,7 @@ function App() {
               <Route exact path="/video">
                 <VideoDetails />
               </Route>
-              <Route exact path="/favorites">
-                <Favorites />
-              </Route>
+              <PrivateRoute exact path="/favorites" component={Favorites} />
               <Route exact path="/history">
                 <History />
               </Route>
