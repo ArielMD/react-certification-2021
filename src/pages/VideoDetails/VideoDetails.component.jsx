@@ -27,7 +27,25 @@ const VideoDetails = () => {
     setIsExtendedDescription((prevState) => !prevState);
   };
 
-  const { addHistory } = useContext(GlobalContext);
+  const {
+    addHistory,
+    addFavoriteVideo,
+    removeFavoriteVideo,
+    favoriteVideos,
+  } = useContext(GlobalContext);
+
+  const isFavorite = () => {
+    return favoriteVideos.find((favorite) => favorite.id === video?.id);
+  };
+
+  const handleAddVideo = () => {
+    const find = isFavorite();
+    if (find) {
+      removeFavoriteVideo(find.id);
+    } else {
+      addFavoriteVideo(video);
+    }
+  };
 
   useEffect(() => {
     if (video) addHistory(video);
@@ -58,8 +76,8 @@ const VideoDetails = () => {
               <Icon className="fas fa-thumbs-down" />
               <Label>Dislike</Label>
             </Button>
-            <Button>
-              <Icon className="fas fa-heart" />
+            <Button onClick={handleAddVideo}>
+              <Icon className={isFavorite() ? 'fas fa-heart' : 'far fa-heart'} />
               <Label>Favorite</Label>
             </Button>
           </ControlContainer>

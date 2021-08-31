@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useCallback } from 'react';
+import React, { useState, useReducer, useCallback, useEffect } from 'react';
 import globalReducer from './globalReducer';
 import authService from '../../services/auth.services';
 import { AUTH, FAVORITE, HISTORY } from '../Types';
@@ -16,7 +16,14 @@ const GlobalProvider = ({ children }) => {
     errorLogin: null,
   };
 
-  const [state, dispatch] = useReducer(globalReducer, initialState);
+  const initializer = () =>
+    JSON.parse(localStorage.getItem('globalState')) || initialState;
+
+  const [state, dispatch] = useReducer(globalReducer, initialState, initializer);
+
+  useEffect(() => {
+    localStorage.setItem('globalState', JSON.stringify(state));
+  }, [state]);
 
   const authenticateUser = useCallback(async (email, password) => {
     try {
@@ -42,14 +49,14 @@ const GlobalProvider = ({ children }) => {
     });
   }, []);
 
-  const AddFavoriteVideo = useCallback((video) => {
+  const addFavoriteVideo = useCallback((video) => {
     dispatch({
       type: FAVORITE.ADD_FAVORITE,
       payload: video,
     });
   }, []);
 
-  const RemoveFavoriteVideo = useCallback((id) => {
+  const removeFavoriteVideo = useCallback((id) => {
     dispatch({
       type: FAVORITE.REMOVE_FAVORITE,
       payload: id,
@@ -63,7 +70,7 @@ const GlobalProvider = ({ children }) => {
     });
   }, []);
 
-  const RemoveHistory = useCallback((id) => {
+  const removeHistory = useCallback((id) => {
     dispatch({
       type: HISTORY.REMOVE_HISTORY,
       payload: id,
@@ -83,10 +90,10 @@ const GlobalProvider = ({ children }) => {
         errorLogin: state.errorLogin,
         authenticateUser,
         logoutUser,
-        AddFavoriteVideo,
-        RemoveFavoriteVideo,
+        addFavoriteVideo,
+        removeFavoriteVideo,
         addHistory,
-        RemoveHistory,
+        removeHistory,
       }}
     >
       {children}
