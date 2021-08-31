@@ -62,3 +62,10 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
 `;
+
+export const Error = styled.p`
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  padding: 1rem;
+`;

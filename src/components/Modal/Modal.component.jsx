@@ -8,6 +8,7 @@ import {
   ModalTitle,
   InputGroup,
   Button,
+  Error,
 } from './modal.styles';
 
 const modalContainer = document.getElementById('modalContainer');
@@ -27,7 +28,7 @@ const useOutside = (callback) => {
     return () => {
       modalContainer.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, callback]);
 
   return { ref };
 };
@@ -35,13 +36,31 @@ const useOutside = (callback) => {
 const Modal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsModalOpen, authenticateUser } = useContext(GlobalContext);
+  const { setIsModalOpen, authenticateUser, errorLogin } = useContext(GlobalContext);
   const { ref } = useOutside(() => setIsModalOpen(false));
+  const inputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     authenticateUser(email, password);
   };
+
+  useEffect(() => {
+    const escEvent = (event) => {
+      if (event.keyCode === 27) {
+        setIsModalOpen(false);
+      }
+    };
+    document.addEventListener('keydown', escEvent, false);
+
+    return () => {
+      document.removeEventListener('keydown', escEvent, false);
+    };
+  }, [setIsModalOpen]);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return ReactDOM.createPortal(
     <ModalContainer>
@@ -52,6 +71,7 @@ const Modal = () => {
             <label className="input" htmlFor="email">
               <i className="fas fa-user" />
               <input
+                ref={inputRef}
                 id="email"
                 type="text"
                 placeholder="email or username"
@@ -72,6 +92,7 @@ const Modal = () => {
               />
             </label>
           </InputGroup>
+          <Error>{errorLogin && errorLogin}</Error>
           <Button type="submit">Login</Button>
         </ModalContent>
       </LoginWrapper>

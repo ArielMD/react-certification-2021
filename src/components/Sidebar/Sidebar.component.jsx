@@ -13,11 +13,11 @@ const Sidebar = ({ isSidebarVisible, setIsSidebarVisible }) => {
         <ItemIcon className="fas fa-home" />
         <ItemName>Home</ItemName>
       </ItemContainer>
-      <ItemContainer to="/">
+      <ItemContainer to="/favorites">
         <ItemIcon className="fas fa-stream" />
-        <ItemName>Playlist</ItemName>
+        <ItemName>Favorites</ItemName>
       </ItemContainer>
-      <ItemContainer to="/">
+      <ItemContainer to="/history">
         <ItemIcon className="fas fa-history" />
         <ItemName>History</ItemName>
       </ItemContainer>

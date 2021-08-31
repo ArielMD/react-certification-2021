@@ -57,19 +57,15 @@ const UserProfile = ({ isProfileVisible }) => {
             <Slider className="slider" />
           </ToggleButton>
         </OptionContainer>
-        <OptionContainer>
-          <OptionImage className="fas fa-globe-americas" />
-          <OptionName>Language</OptionName>
-          <ToggleButton htmlFor="language">
-            <Checkbox type="checkbox" id="language" className="checkbox" />
-            <Slider className="slider" />
-          </ToggleButton>
-        </OptionContainer>
-        <LineDivider />
-        <Logout onClick={logoutUser}>
-          <OptionImage className="fas fa-sign-out-alt" />
-          <OptionName>Log out</OptionName>
-        </Logout>
+        {currentUser && (
+          <>
+            <LineDivider />
+            <Logout onClick={logoutUser}>
+              <OptionImage className="fas fa-sign-out-alt" />
+              <OptionName>Log out</OptionName>
+            </Logout>
+          </>
+        )}
       </ProfileContainer>
     </CSSTransition>
   );

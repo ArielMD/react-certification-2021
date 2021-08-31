@@ -9,7 +9,7 @@ import Layout from '../Layout';
 import GlobalProvider from '../../providers/Global';
 import Favorites from '../../pages/Favorites';
 import History from '../../pages/History';
-import PrivateRoute from '../PrivateRoute/PrivateRoute.component';
+import PrivateRoute from '../PrivateRoute';
 
 function App() {
   return (

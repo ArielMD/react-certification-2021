@@ -35,10 +35,9 @@ const GlobalProvider = ({ children }) => {
       });
       setIsModalOpen(false);
     } catch (error) {
-      console.log(error);
       dispatch({
         type: AUTH.LOGIN_ERROR,
-        payload: error,
+        payload: error.message,
       });
     }
   }, []);

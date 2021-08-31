@@ -22,16 +22,10 @@ describe('UserProfile component', () => {
     expect(darkmodeElement).toBeInTheDocument();
   });
 
-  it('should contains a language', () => {
-    const darkmodeElement = screen.getByText(/Language/i);
+  it('should not contains a logout', () => {
+    const logoutElement = screen.queryByDisplayValue(/Log out/i);
 
-    expect(darkmodeElement).toBeInTheDocument();
-  });
-
-  it('should contains a logout', () => {
-    const logoutElement = screen.getByText(/Log out/i);
-
-    expect(logoutElement).toBeInTheDocument();
+    expect(logoutElement).not.toBeInTheDocument();
   });
 
   it('should render UserProdfile when showProfile prop is true', () => {

@@ -22,6 +22,7 @@ const VideoDetails = () => {
   const [isExtendedDescription, setIsExtendedDescription] = useState(false);
   const { queryId } = useQuery();
   const { video } = useVideoDetails(queryId);
+  const { currentUser } = useContext(GlobalContext);
 
   const handleDescription = () => {
     setIsExtendedDescription((prevState) => !prevState);
@@ -76,10 +77,12 @@ const VideoDetails = () => {
               <Icon className="fas fa-thumbs-down" />
               <Label>Dislike</Label>
             </Button>
-            <Button onClick={handleAddVideo}>
-              <Icon className={isFavorite() ? 'fas fa-heart' : 'far fa-heart'} />
-              <Label>Favorite</Label>
-            </Button>
+            {currentUser && (
+              <Button onClick={handleAddVideo}>
+                <Icon className={isFavorite() ? 'fas fa-heart' : 'far fa-heart'} />
+                <Label>Favorite</Label>
+              </Button>
+            )}
           </ControlContainer>
           <div>
             <Channel>{video?.snippet.channelTitle}</Channel>
@@ -91,9 +94,6 @@ const VideoDetails = () => {
             </DescriptionButton>
           </div>
         </Details>
-        <div>
-          <h4>Comments comming soon</h4>
-        </div>
       </VideoDetailsContainer>
       <RelatedVideos />
     </Container>

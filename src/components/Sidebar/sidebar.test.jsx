@@ -25,7 +25,7 @@ describe('Sidebar component', () => {
     expect(homeElement).toBeInTheDocument();
   });
   it('should contains playlist', () => {
-    const playlistElement = screen.queryByText(/Playlist/i);
+    const playlistElement = screen.queryByText(/Favorites/i);
 
     expect(playlistElement).toBeInTheDocument();
   });
