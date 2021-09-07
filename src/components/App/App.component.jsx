@@ -7,6 +7,9 @@ import VideoDetails from '../../pages/VideoDetails';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import GlobalProvider from '../../providers/Global';
+import Favorites from '../../pages/Favorites';
+import History from '../../pages/History';
+import PrivateRoute from '../PrivateRoute';
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
               </Route>
               <Route exact path="/video">
                 <VideoDetails />
+              </Route>
+              <PrivateRoute exact path="/favorites" component={Favorites} />
+              <Route exact path="/history">
+                <History />
               </Route>
               <Route path="*">
                 <NotFound />

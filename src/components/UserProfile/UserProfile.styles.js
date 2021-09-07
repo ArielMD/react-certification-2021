@@ -33,8 +33,7 @@ export const UserInformation = styled.div`
   margin: 1rem 0;
 `;
 
-export const UserPicture = styled.div`
-  background-color: #4dc6ff;
+export const UserPicture = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 2rem;
@@ -68,6 +67,18 @@ export const OptionContainer = styled.div`
   &:hover {
     background-color: ${(props) => props.theme.HoverProfile};
   }
+`;
+
+export const Logout = styled.button`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: ${(props) => props.theme.colorProfile};
 `;
 
 export const OptionImage = styled.i`

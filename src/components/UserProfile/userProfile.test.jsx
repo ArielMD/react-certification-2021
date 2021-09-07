@@ -3,11 +3,14 @@ import { render, screen } from '@testing-library/react';
 
 import UserProfile from './UserProfile.component';
 import HOCTheme from '../../providers/Theme';
+import GlobalProvider from '../../providers/Global';
 
 beforeEach(() => {
   render(
     <HOCTheme>
-      <UserProfile isProfileVisible />
+      <GlobalProvider>
+        <UserProfile isProfileVisible />
+      </GlobalProvider>
     </HOCTheme>
   );
 });
@@ -19,22 +22,18 @@ describe('UserProfile component', () => {
     expect(darkmodeElement).toBeInTheDocument();
   });
 
-  it('should contains a language', () => {
-    const darkmodeElement = screen.getByText(/Language/i);
+  it('should not contains a logout', () => {
+    const logoutElement = screen.queryByDisplayValue(/Log out/i);
 
-    expect(darkmodeElement).toBeInTheDocument();
-  });
-
-  it('should contains a logout', () => {
-    const logoutElement = screen.getByText(/Log out/i);
-
-    expect(logoutElement).toBeInTheDocument();
+    expect(logoutElement).not.toBeInTheDocument();
   });
 
   it('should render UserProdfile when showProfile prop is true', () => {
     const { container } = render(
       <HOCTheme>
-        <UserProfile isProfileVisible />
+        <GlobalProvider>
+          <UserProfile isProfileVisible />
+        </GlobalProvider>
       </HOCTheme>
     );
     expect(container.firstChild).toBeInTheDocument();
@@ -43,7 +42,9 @@ describe('UserProfile component', () => {
   it('should not render UserProfile when showProfile prop is false', () => {
     const { container } = render(
       <HOCTheme>
-        <UserProfile isProfileVisible={false} />
+        <GlobalProvider>
+          <UserProfile isProfileVisible={false} />
+        </GlobalProvider>
       </HOCTheme>
     );
     expect(container.firstChild).not.toBeInTheDocument();
